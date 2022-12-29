@@ -37,7 +37,19 @@ const getCountry = country => {
     });
 };
 
-btn.addEventListener('click', function (e) {
+const displayCountry = () => {
   getCountry(document.querySelector('.search-box').value);
   document.querySelector('.search-box').value = '';
+};
+
+// CONTROL WITH BUTTON,
+btn.addEventListener('click', function () {
+  displayCountry();
+});
+
+// CONTROL WITH EVENT
+window.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    displayCountry();
+  }
 });
